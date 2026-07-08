@@ -15,3 +15,6 @@ dbname = "my_awesome_db"
 [migra]
 safe = false
 privileges = false
+
+[filter]
+exclude_matches = ['a_table_to_exclude']

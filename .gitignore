@@ -2,3 +2,5 @@
 tusker.toml
 tusker.egg-info/
 __pycache__/
+.venv/
+dist/

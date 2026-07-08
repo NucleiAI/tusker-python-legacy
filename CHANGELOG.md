@@ -1,5 +1,9 @@
 # Change Log
 
+## v0.6.1
+
+* Add `exclude_matches` config to new `filter` section. This will filter out any SQL statements that contain any entries in the list.
+
 ## v0.5.1
 
 * Fix error message for invalid backends
