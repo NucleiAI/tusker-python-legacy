@@ -1,12 +1,14 @@
-[tool.poetry]
-name = "tusker"
-version = "0.5.1"
-authors = ["Michael P. Jung <michael.jung@terreon.de>"]
-license = "Unlicense"
-readme = "README.md"
+[project]
+name = "tusker-nuclei"
+version = "0.6.1"
 description = "A PostgreSQL specific migration tool"
-repository = "https://github.com/bikeshedder/tusker"
-homepage = "https://github.com/bikeshedder/tusker"
+readme = "README.md"
+license = { text = "Unlicense" }
+authors = [
+    { name = "Henry Jones", email = "hjones@proofpoint.com" },
+    { name = "Michael P. Jung", email = "michael.jung@terreon.de" },
+]
+requires-python = ">=3.7"
 classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
@@ -15,20 +17,25 @@ classifiers = [
     "Topic :: Database",
     "Topic :: Utilities",
 ]
+dependencies = [
+    "importlib-metadata>=1.0,<2.0; python_version < '3.8'",
+    "migra>=3.0.1621480950,<4.0",
+    "tomlkit>=0.11,<0.12",
+    "sqlalchemy>=1.4.25,<2.0",
+    "psycopg2>=2.9.5,<3.0",
+    "setuptools<81",
+]
 
-[tool.poetry.scripts]
+[project.urls]
+Homepage = "https://github.com/NucleiAI/tusker-python-legacy"
+Repository = "https://github.com/NucleiAI/tusker-python-legacy"
+
+[project.scripts]
 tusker = "tusker:main"
 
-[tool.poetry.dependencies]
-python = "^3.7"
-importlib-metadata = {version = "^1.0", python = "<3.8"}
-migra = "^3.0.1621480950"
-tomlkit = "^0.11"
-sqlalchemy = "^1.4.25"
-psycopg2 = "^2.9.5"
-
-[tool.poetry.dev-dependencies]
-
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["tusker"]

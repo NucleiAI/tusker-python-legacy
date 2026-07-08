@@ -1,8 +1,20 @@
+## TUSKER Nuclei Fork
+
+This fork implements a table exclusion feature into tusker.
+
+```
+[filter]
+
+exclude_matches = ['a_table_to_exclude']
+```
+
+This will remove any SQL statements that contain any strings in the list.
+
+
 # Tusker
 
-[![GitHub](https://img.shields.io/github/license/bikeshedder/tusker?label=License&logoColor=white&style=for-the-badge)](https://github.com/bikeshedder/tusker/blob/master/LICENSE)
-&nbsp;
-[![PyPI](https://img.shields.io/pypi/v/tusker?label=PyPI&logo=pypi&logoColor=white&style=for-the-badge)](https://pypi.org/project/tusker)
+
+[![PyPI](https://img.shields.io/pypi/v/tusker-nuclei?label=PyPI&logo=pypi&logoColor=white&style=for-the-badge)](https://pypi.org/project/tusker)
 
 A PostgreSQL specific migration tool
 
@@ -27,6 +39,16 @@ Now you should be able to run tusker. Give it a try:
 
 ```shell
 tusker --help
+```
+
+### From source (with uv)
+
+This project uses [uv](https://docs.astral.sh/uv/). To set up a development
+environment and run tusker from a checkout:
+
+```shell
+uv sync
+uv run tusker --help
 ```
 
 ## Getting started
