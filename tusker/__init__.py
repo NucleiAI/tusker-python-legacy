@@ -196,8 +196,15 @@ class Tusker:
             cursor.close()
 
     def _get_schema_files(self):
+        excluded = {
+            path
+            for pattern in self.config.schema.exclude_filename
+            for path in glob(pattern, recursive=True)
+        }
         for pattern in self.config.schema.filename:
-            yield from sorted(glob(pattern, recursive=True))
+            for path in sorted(glob(pattern, recursive=True)):
+                if path not in excluded:
+                    yield path
 
     def _get_migration_files(self):
         for pattern in self.config.migrations.filename:
