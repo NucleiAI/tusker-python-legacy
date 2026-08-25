@@ -1,6 +1,6 @@
 [project]
 name = "tusker-nuclei"
-version = "0.6.1"
+version = "0.6.2"
 description = "A PostgreSQL specific migration tool"
 readme = "README.md"
 license = { text = "Unlicense" }

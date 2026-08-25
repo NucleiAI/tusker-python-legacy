@@ -8,7 +8,24 @@ This fork implements a table exclusion feature into tusker.
 exclude_matches = ['a_table_to_exclude']
 ```
 
-This will remove any SQL statements that contain any strings in the list.
+This will remove any SQL statements that contain any strings in the list from
+the generated diff output.
+
+It also supports excluding whole schema files from the shadow databases that
+tusker builds to compute the diff:
+
+```
+[schema]
+
+filename = "[!_]*.sql"
+exclude_filename = ['huge_generated_file.sql']
+```
+
+Any file matching an `exclude_filename` glob is skipped when building the
+shadow schema. This is useful for large generated DDL (e.g. thousands of table
+partitions) whose objects are already suppressed from the diff via
+`exclude_matches`: there is no point paying to build them in the shadow
+database every run.
 
 
 # Tusker
